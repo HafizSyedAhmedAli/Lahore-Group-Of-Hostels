@@ -1,6 +1,7 @@
 import { User, Users2, ShowerHead, Droplets } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "./motion/Reveal";
 import { CountUp } from "./motion/CountUp";
+import { getWhatsAppUrl } from "@/lib/contact";
 
 const rooms = [
   {
@@ -105,6 +106,16 @@ export default function RoomPricing() {
                 <p className="mt-5 text-xs text-ink/70 dark:text-ivory/60 border-t border-navy/10 dark:border-ivory/10 pt-4">
                   {room.bath}
                 </p>
+                <a
+                  href={getWhatsAppUrl(
+                    `Hi! I'm interested in the ${room.title} (Rs ${room.rent.toLocaleString()} ${room.rentNote}). Is a seat available?`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-navy text-ivory px-4 py-2.5 text-sm font-semibold hover:bg-gold hover:text-navy dark:bg-gold dark:text-navy dark:hover:bg-ivory transition-colors"
+                >
+                  Book this room
+                </a>
               </div>
             </RevealItem>
           ))}
