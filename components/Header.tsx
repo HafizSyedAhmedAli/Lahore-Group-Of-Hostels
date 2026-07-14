@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Phone } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const links = [
   { href: "#rooms", label: "Rooms" },
@@ -65,7 +66,9 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
           <motion.a
-            href="tel:+923188284671"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 rounded-full bg-navy text-ivory px-5 py-2.5 text-sm font-semibold shadow-md shadow-navy/20 hover:bg-gold hover:text-navy dark:bg-gold dark:text-navy dark:hover:bg-ivory transition-colors"
@@ -108,7 +111,11 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="tel:+923188284671"
+                // mobile menu link — I also added onClick to close the menu after tap, which it wasn't doing before
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy text-ivory px-5 py-3 text-sm font-semibold dark:bg-gold dark:text-navy"
               >
                 <Phone size={16} /> Book a Visit

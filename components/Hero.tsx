@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { BedDouble, ShieldCheck, Users, Star } from "lucide-react";
 import BuildingArt from "./BuildingArt";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -106,7 +107,9 @@ export default function Hero() {
               See Room Rates
             </motion.a>
             <motion.a
-              href="tel:+923188284671"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="rounded-full border border-navy/30 text-navy hover:border-navy dark:border-ivory/30 dark:text-ivory dark:hover:border-ivory px-7 py-3.5 font-semibold transition-colors"

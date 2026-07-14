@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
+import { PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 export default function Footer() {
   return (
@@ -29,10 +30,12 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-gold" />
                 <a
-                  href="tel:+923188284671"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-gold transition-colors"
                 >
-                  0318 8284671
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-2">

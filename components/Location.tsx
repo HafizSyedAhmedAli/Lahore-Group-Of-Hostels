@@ -1,5 +1,6 @@
 import { MapPin, Phone, Star } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
+import { PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 const address =
   "Lahore Group Of Hostels, Saif Town, Stree No.7, Thokar Niaz Baig, Lahore, 53700, Pakistan";
@@ -35,10 +36,12 @@ export default function Location() {
               (36 reviews)
             </span>
             <a
-              href="tel:+923188284671"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 hover:text-gold transition-colors"
             >
-              <Phone size={15} className="text-gold" /> 0318 8284671
+              <Phone size={15} className="text-gold" /> {PHONE_DISPLAY}
             </a>
           </div>
 
