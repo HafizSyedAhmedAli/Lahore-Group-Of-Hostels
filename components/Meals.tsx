@@ -1,6 +1,5 @@
 import { UtensilsCrossed } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
-import { CountUp } from "./motion/CountUp";
 
 export default function Meals() {
   return (
@@ -15,15 +14,17 @@ export default function Meals() {
               Meals, whenever you want them
             </h2>
             <p className="text-ivory/70 text-sm mt-1 max-w-md">
-              No forced meal plan — pay Rs 250 per meal when you want one, or
+              No forced meal plan — pay per meal only when you want one, or
               use the shared kitchen and cook for yourself.
             </p>
           </div>
         </div>
-        <div className="font-mono text-3xl font-bold text-gold shrink-0">
-          Rs <CountUp value={250} />
-          <span className="text-sm text-ivory/50 font-body"> / meal</span>
-        </div>
+        <a
+          href="tel:+923188284671"
+          className="inline-flex items-center gap-2 rounded-full border border-gold/40 text-gold px-5 py-2.5 text-sm font-semibold hover:bg-gold hover:text-navy transition-colors shrink-0"
+        >
+          Ask about meal rates
+        </a>
       </Reveal>
     </section>
   );

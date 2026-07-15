@@ -9,7 +9,7 @@ const steps = [
   {
     n: "02",
     title: "Pay the registration fee",
-    body: "A one-time Rs 500 registration fee confirms and holds your seat.",
+    body: "A small one-time registration fee confirms and holds your seat — ask us for the current amount.",
   },
   {
     n: "03",
@@ -20,10 +20,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section
-      id="how-it-works"
-      className="bg-sand dark:bg-navy-soft py-16 md:py-20 scroll-mt-24 transition-colors duration-300"
-    >
+    <section id="how-it-works" className="bg-sand dark:bg-navy-soft py-16 md:py-20 scroll-mt-24 transition-colors duration-300">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold mb-3">
@@ -43,9 +40,7 @@ export default function HowItWorks() {
               <h3 className="font-display text-lg font-bold text-navy dark:text-ivory mt-3 mb-2">
                 {s.title}
               </h3>
-              <p className="text-sm text-ink/70 dark:text-ivory/60 leading-relaxed">
-                {s.body}
-              </p>
+              <p className="text-sm text-ink/70 dark:text-ivory/60 leading-relaxed">{s.body}</p>
             </RevealItem>
           ))}
         </RevealGroup>

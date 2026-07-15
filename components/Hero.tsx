@@ -1,9 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { BedDouble, ShieldCheck, Users, Star } from "lucide-react";
-import BuildingArt from "./BuildingArt";
-import { WHATSAPP_URL } from "@/lib/contact";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -104,12 +103,10 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
               className="rounded-full bg-navy text-ivory px-7 py-3.5 font-semibold shadow-lg shadow-navy/20 hover:bg-gold hover:text-navy dark:bg-gold dark:text-navy dark:hover:bg-ivory transition-colors"
             >
-              See Room Rates
+              See Room Types
             </motion.a>
             <motion.a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:+923188284671"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="rounded-full border border-navy/30 text-navy hover:border-navy dark:border-ivory/30 dark:text-ivory dark:hover:border-ivory px-7 py-3.5 font-semibold transition-colors"
@@ -141,24 +138,29 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="relative mx-auto w-[260px] sm:w-[300px] md:w-[320px]">
+        <div className="relative mx-auto w-full max-w-md">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: easeOut }}
-            className="relative"
           >
-            <div className="absolute inset-0 -z-10 rounded-full border border-gold/40 scale-110" />
             <motion.div
-              animate={{ y: [0, -10, 0] }}
+              animate={{ y: [0, -8, 0] }}
               transition={{
                 duration: 4.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="rounded-t-[130px] sm:rounded-t-[150px] md:rounded-t-[160px] overflow-hidden shadow-2xl shadow-navy/20 bg-navy p-4 border-4 border-gold/60"
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden border-4 border-gold/50 shadow-2xl shadow-navy/20"
             >
-              <BuildingArt />
+              <Image
+                src="/hero.jpeg"
+                alt="Lahore Group of Hostels building, evening exterior view"
+                fill
+                priority
+                sizes="(min-width: 768px) 480px, 90vw"
+                className="object-cover object-[65%_center]"
+              />
             </motion.div>
           </motion.div>
 
@@ -166,7 +168,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.9, ease: easeOut }}
-            className="absolute -left-6 bottom-6 sm:-left-8 sm:bottom-8 flex items-center gap-2 rounded-2xl bg-white/90 dark:bg-navy-950/90 backdrop-blur border border-navy/10 dark:border-ivory/15 px-4 py-3 shadow-xl"
+            className="absolute -left-4 bottom-4 sm:-left-6 sm:bottom-6 flex items-center gap-2 rounded-2xl bg-white/90 dark:bg-navy-950/90 backdrop-blur border border-navy/10 dark:border-ivory/15 px-4 py-3 shadow-xl"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-gold shrink-0">
               <Star size={18} fill="currentColor" />
