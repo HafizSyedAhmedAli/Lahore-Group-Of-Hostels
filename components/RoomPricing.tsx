@@ -1,5 +1,12 @@
-import { User, Users2, ShowerHead, Droplets, Phone } from "lucide-react";
+import {
+  User,
+  Users2,
+  ShowerHead,
+  Droplets,
+  MessageCircle,
+} from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "./motion/Reveal";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const rooms = [
   {
@@ -76,10 +83,12 @@ export default function RoomPricing() {
                 </p>
 
                 <a
-                  href="tel:+923188284671"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy dark:text-ivory hover:text-gold transition-colors"
                 >
-                  <Phone size={14} /> Call for rates
+                  <MessageCircle size={14} /> Chat for rates
                 </a>
               </div>
             </RevealItem>

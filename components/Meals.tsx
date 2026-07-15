@@ -1,5 +1,6 @@
 import { UtensilsCrossed } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export default function Meals() {
   return (
@@ -14,13 +15,15 @@ export default function Meals() {
               Meals, whenever you want them
             </h2>
             <p className="text-ivory/70 text-sm mt-1 max-w-md">
-              No forced meal plan — pay per meal only when you want one, or
-              use the shared kitchen and cook for yourself.
+              No forced meal plan — pay per meal only when you want one, or use
+              the shared kitchen and cook for yourself.
             </p>
           </div>
         </div>
         <a
-          href="tel:+923188284671"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-gold/40 text-gold px-5 py-2.5 text-sm font-semibold hover:bg-gold hover:text-navy transition-colors shrink-0"
         >
           Ask about meal rates
