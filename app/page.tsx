@@ -4,6 +4,7 @@ import ArchDivider from "@/components/ArchDivider";
 import Pillars from "@/components/Pillars";
 import Amenities from "@/components/Amenities";
 import Gallery from "@/components/Gallery";
+import VideoTour from "@/components/VideoTour";
 import RoomPricing from "@/components/RoomPricing";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -20,6 +21,7 @@ export default function Home() {
       <Pillars />
       <Amenities />
       <Gallery />
+      <VideoTour />
       <RoomPricing />
       <HowItWorks />
       <Testimonials />

@@ -14,17 +14,22 @@ type Photo = {
 
 const photos: Photo[] = [
   {
-    src: "/gallery/exterior.jpg",
-    alt: "Building exterior, Lahore Group of Hostels",
+    src: "/gallery/facade-night.jpg",
+    alt: "Building exterior, evening",
     span: "big",
   },
   { src: "/gallery/single-room.jpg", alt: "Single seater room" },
   { src: "/gallery/two-seater-room.jpg", alt: "2-seater room" },
   { src: "/gallery/kitchen.jpg", alt: "Shared kitchen", span: "wide" },
-  { src: "/gallery/bathroom.jpg", alt: "Attached bathroom" },
+  { src: "/gallery/entrance.jpg", alt: "Main entrance", span: "tall" },
   { src: "/gallery/common-area.jpg", alt: "Common area" },
-  { src: "/gallery/corridor.jpg", alt: "Hallway", span: "tall" },
   { src: "/gallery/three-seater-room.jpg", alt: "3-seater room" },
+  { src: "/gallery/bathroom.jpg", alt: "Attached bathroom" },
+  {
+    src: "/gallery/building-portrait.jpg",
+    alt: "Lahore Group of Hostels building",
+    span: "wide",
+  },
 ];
 
 const spanClass: Record<string, string> = {
@@ -66,7 +71,7 @@ export default function Gallery() {
           {photos.map((photo, i) => (
             <RevealItem
               key={photo.src}
-              className={`relative group overflow-hidden rounded-2xl ${spanClass[photo.span ?? ""] ?? ""}`}
+              className={`relative group overflow-hidden rounded-2xl bg-navy/5 dark:bg-ivory/5 ${spanClass[photo.span ?? ""] ?? ""}`}
             >
               <button
                 type="button"
@@ -74,12 +79,14 @@ export default function Gallery() {
                 className="absolute inset-0 w-full h-full"
                 aria-label={`View photo: ${photo.alt}`}
               >
-                <Image
+                {/* Plain <img> here — bypasses the Next/Netlify image optimizer,
+                    which was silently failing on this tile's small requested width */}
+                <img
                   src={photo.src}
                   alt={photo.alt}
-                  fill
-                  sizes="(min-width: 640px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300 flex items-center justify-center">
                   <Expand

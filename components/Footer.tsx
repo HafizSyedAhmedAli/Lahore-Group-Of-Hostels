@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
-import { PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Footer() {
   return (
@@ -23,27 +23,28 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-ivory font-bold mb-4">
-              Get in touch
-            </h3>
+            <h3 className="font-display text-ivory font-bold mb-4">Get in touch</h3>
             <ul className="space-y-3 text-ivory/70 text-sm">
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-gold" />
+                <a href="tel:+923188284671" className="hover:text-gold transition-colors">
+                  0318 8284671
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <WhatsAppIcon size={16} className="text-[#25D366]" />
                 <a
-                  href={WHATSAPP_URL}
+                  href="https://wa.me/923008570956"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
                   className="hover:text-gold transition-colors"
                 >
-                  {PHONE_DISPLAY}
+                  0300 8570956 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-gold" />
-                <a
-                  href="mailto:stay@lahoregroupofhostels.com"
-                  className="hover:text-gold transition-colors"
-                >
+                <a href="mailto:stay@lahoregroupofhostels.com" className="hover:text-gold transition-colors">
                   stay@lahoregroupofhostels.com
                 </a>
               </li>
@@ -55,46 +56,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-ivory font-bold mb-4">
-              Quick links
-            </h3>
+            <h3 className="font-display text-ivory font-bold mb-4">Quick links</h3>
             <ul className="space-y-3 text-ivory/70 text-sm">
-              <li>
-                <a href="#rooms" className="hover:text-gold transition-colors">
-                  Rooms & rates
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#amenities"
-                  className="hover:text-gold transition-colors"
-                >
-                  Amenities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-it-works"
-                  className="hover:text-gold transition-colors"
-                >
-                  How it works
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#location"
-                  className="hover:text-gold transition-colors"
-                >
-                  Location
-                </a>
-              </li>
+              <li><a href="#rooms" className="hover:text-gold transition-colors">Rooms</a></li>
+              <li><a href="#amenities" className="hover:text-gold transition-colors">Amenities</a></li>
+              <li><a href="#how-it-works" className="hover:text-gold transition-colors">How it works</a></li>
+              <li><a href="#location" className="hover:text-gold transition-colors">Location</a></li>
             </ul>
           </div>
         </div>
 
         <p className="text-ivory/40 text-xs pt-6 text-center">
-          © {new Date().getFullYear()} Lahore Group of Hostels. All rights
-          reserved.
+          © {new Date().getFullYear()} Lahore Group of Hostels. All rights reserved.
         </p>
       </Reveal>
     </footer>

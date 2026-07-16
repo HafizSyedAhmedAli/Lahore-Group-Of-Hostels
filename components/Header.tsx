@@ -5,16 +5,21 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Phone } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import { WHATSAPP_URL } from "@/lib/contact";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const links = [
   { href: "#rooms", label: "Rooms" },
   { href: "#amenities", label: "Amenities" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#video-tour", label: "Videos" },
   { href: "#meals", label: "Meals" },
   { href: "#how-it-works", label: "How it Works" },
   { href: "#location", label: "Location" },
 ];
+
+const whatsappUrl =
+  "https://wa.me/923008570956?text=" +
+  encodeURIComponent("Hi, I'm interested in a room at Lahore Group of Hostels.");
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -63,12 +68,21 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <motion.a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Chat on WhatsApp"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-md hover:brightness-105 transition-[filter]"
+          >
+            <WhatsAppIcon size={19} />
+          </motion.a>
+          <motion.a
+            href="tel:+923188284671"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 rounded-full bg-navy text-ivory px-5 py-2.5 text-sm font-semibold shadow-md shadow-navy/20 hover:bg-gold hover:text-navy dark:bg-gold dark:text-navy dark:hover:bg-ivory transition-colors"
@@ -101,25 +115,26 @@ export default function Header() {
           >
             <nav className="flex flex-col gap-4 font-body text-navy/90 dark:text-ivory/80 px-5 pb-6 pt-4">
               {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="py-1"
-                >
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
                   {l.label}
                 </a>
               ))}
-              <a
-                // mobile menu link — I also added onClick to close the menu after tap, which it wasn't doing before
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy text-ivory px-5 py-3 text-sm font-semibold dark:bg-gold dark:text-navy"
-              >
-                <Phone size={16} /> Book a Visit
-              </a>
+              <div className="mt-2 flex gap-3">
+                <a
+                  href="tel:+923188284671"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-navy text-ivory px-5 py-3 text-sm font-semibold dark:bg-gold dark:text-navy"
+                >
+                  <Phone size={16} /> Call
+                </a>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-3 text-sm font-semibold"
+                >
+                  <WhatsAppIcon size={16} /> WhatsApp
+                </a>
+              </div>
             </nav>
           </motion.div>
         )}
