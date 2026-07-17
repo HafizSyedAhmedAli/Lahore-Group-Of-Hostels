@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Phone } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import ThemeLogo from "./ThemeLogo";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 const links = [
@@ -19,7 +19,9 @@ const links = [
 
 const whatsappUrl =
   "https://wa.me/923008570956?text=" +
-  encodeURIComponent("Hi, I'm interested in a room at Lahore Group of Hostels.");
+  encodeURIComponent(
+    "Hi, I'm interested in a room at Lahore Group of Hostels.",
+  );
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -46,12 +48,8 @@ export default function Header() {
         }`}
       >
         <a href="/" className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="Lahore Group of Hostels"
-            width={48}
-            height={48}
-            className={`object-contain transition-all duration-300 ${scrolled ? "h-10 w-10" : "h-12 w-12"}`}
+          <ThemeLogo
+            className={`object-contain rounded-full transition-all duration-300 ${scrolled ? "h-10 w-10" : "h-12 w-12"}`}
           />
           <span className="hidden sm:block font-display text-lg font-bold text-navy dark:text-ivory leading-none">
             Lahore Group
@@ -115,7 +113,12 @@ export default function Header() {
           >
             <nav className="flex flex-col gap-4 font-body text-navy/90 dark:text-ivory/80 px-5 pb-6 pt-4">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="py-1"
+                >
                   {l.label}
                 </a>
               ))}
