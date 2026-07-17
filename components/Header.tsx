@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import ThemeLogo from "./ThemeLogo";
 import WhatsAppIcon from "./WhatsAppIcon";
+import { WHATSAPP_URL, MAIN_BRANCH, whatsappLink } from "@/lib/contact";
 
 const links = [
   { href: "#rooms", label: "Rooms" },
@@ -17,11 +18,15 @@ const links = [
   { href: "#location", label: "Location" },
 ];
 
-const whatsappUrl =
-  "https://wa.me/923008570956?text=" +
-  encodeURIComponent(
-    "Hi, I'm interested in a room at Lahore Group of Hostels.",
-  );
+// Green circle button — Abdul Hafeez, same as before (was hardcoded locally, unchanged)
+const chatWhatsappUrl = whatsappLink(
+  MAIN_BRANCH.contacts[1].phone,
+  "Hi, I'm interested in a room at Lahore Group of Hostels.",
+);
+
+// "Book a Visit" / mobile "Call" button — was tel:+923188284671 (Asad Ullah),
+// now WhatsApp to the same number/message via lib/contact's WHATSAPP_URL
+const bookAVisitUrl = WHATSAPP_URL;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -69,7 +74,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <motion.a
-            href={whatsappUrl}
+            href={chatWhatsappUrl}
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.08 }}
@@ -80,12 +85,14 @@ export default function Header() {
             <WhatsAppIcon size={19} />
           </motion.a>
           <motion.a
-            href="tel:+923188284671"
+            href={bookAVisitUrl}
+            target="_blank"
+            rel="noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 rounded-full bg-navy text-ivory px-5 py-2.5 text-sm font-semibold shadow-md shadow-navy/20 hover:bg-gold hover:text-navy dark:bg-gold dark:text-navy dark:hover:bg-ivory transition-colors"
           >
-            <Phone size={16} /> Book a Visit
+            Book a Visit
           </motion.a>
         </div>
 
@@ -124,18 +131,20 @@ export default function Header() {
               ))}
               <div className="mt-2 flex gap-3">
                 <a
-                  href="tel:+923188284671"
+                  href={bookAVisitUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-navy text-ivory px-5 py-3 text-sm font-semibold dark:bg-gold dark:text-navy"
                 >
-                  <Phone size={16} /> Call
+                  Book a Visit
                 </a>
                 <a
-                  href={whatsappUrl}
+                  href={chatWhatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-3 text-sm font-semibold"
                 >
-                  <WhatsAppIcon size={16} /> WhatsApp
+                  <WhatsAppIcon size={16} /> Chat
                 </a>
               </div>
             </nav>
