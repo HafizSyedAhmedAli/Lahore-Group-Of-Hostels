@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
 import WhatsAppIcon from "./WhatsAppIcon";
 import ThemeLogo from "./ThemeLogo";
-import { BRANCHES, whatsappLink } from "@/lib/contact";
+import { BRANCHES, whatsappLink, formatPhone } from "@/lib/contact";
 
 export default function Footer() {
   return (
@@ -12,8 +12,8 @@ export default function Footer() {
           <div>
             <ThemeLogo className="h-14 w-14 rounded-full object-contain mb-4" />
             <p className="text-ivory/60 text-sm max-w-xs">
-              Comfort, safety, and community — two hostel branches in the heart
-              of Lahore.
+              Comfort, safety, and community — four hostel branches in the
+              heart of Lahore.
             </p>
           </div>
 
@@ -53,11 +53,11 @@ export default function Footer() {
 
         <div className="pt-8 pb-4 flex flex-wrap items-center justify-center gap-6 text-ivory/60 text-sm">
           <a
-            href="mailto:stay@lahoregroupofhostels.com"
+            href="mailto:stayatlahoregroupofhostels@gmail.com"
             className="inline-flex items-center gap-2 hover:text-gold transition-colors"
           >
             <Mail size={16} className="text-gold" />
-            stay@lahoregroupofhostels.com
+            stayatlahoregroupofhostels@gmail.com
           </a>
         </div>
 
@@ -68,10 +68,4 @@ export default function Footer() {
       </Reveal>
     </footer>
   );
-}
-
-function formatPhone(phone: string) {
-  // "923188284671" -> "0318 8284671"
-  const local = "0" + phone.slice(2);
-  return `${local.slice(0, 4)} ${local.slice(4)}`;
 }

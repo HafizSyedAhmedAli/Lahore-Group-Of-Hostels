@@ -48,6 +48,12 @@ export function whatsappLink(phone: string, message?: string) {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
+export function formatPhone(phone: string) {
+  // "923188284671" -> "0318 8284671"
+  const local = "0" + phone.slice(2);
+  return `${local.slice(0, 4)} ${local.slice(4)}`;
+}
+
 // --- Original exports, unchanged in value — Hero/Meals/RoomPricing keep working as-is ---
 
 export const PHONE_DISPLAY = "0318 8284671";

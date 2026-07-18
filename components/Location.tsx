@@ -1,7 +1,7 @@
 import { MapPin, Star } from "lucide-react";
 import { Reveal } from "./motion/Reveal";
 import WhatsAppIcon from "./WhatsAppIcon";
-import { BRANCHES, whatsappLink } from "@/lib/contact";
+import { BRANCHES, whatsappLink, formatPhone } from "@/lib/contact";
 
 export default function Location() {
   return (
@@ -15,7 +15,7 @@ export default function Location() {
             Location
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-navy dark:text-ivory">
-            Two branches in Lahore.
+            Four branches in Lahore.
           </h2>
         </Reveal>
 
@@ -61,7 +61,7 @@ export default function Location() {
                         className="inline-flex items-center gap-1.5 hover:text-gold transition-colors"
                       >
                         <WhatsAppIcon size={15} className="text-[#25D366]" />
-                        {contact.name}
+                        {contact.name} — {formatPhone(contact.phone)}
                       </a>
                     ))}
                   </div>
