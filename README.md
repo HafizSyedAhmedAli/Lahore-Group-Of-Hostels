@@ -1,8 +1,8 @@
 # Lahore Group of Hostels
 
-Marketing website for Lahore Group of Hostels, built with Next.js and Tailwind CSS. Presents the hostel's branches, room pricing, meals, amenities, gallery, and direct WhatsApp-based booking contact — no backend or database, all content is static/in-code.
+Marketing website for Lahore Group of Hostels, built with Next.js and Tailwind CSS. Presents the hostel's branches, room pricing, meals, amenities, gallery, and direct WhatsApp-based booking contact -- no backend or database, all content is static/in-code.
 
-**Live:** https://lahore-group-of-hostels.netlify.app/
+Live: https://lahore-group-of-hostels.netlify.app/
 
 ## Features
 
@@ -31,7 +31,7 @@ Marketing website for Lahore Group of Hostels, built with Next.js and Tailwind C
 ## Prerequisites
 
 - Node.js 18+
-- npm (or bun — a bun.lock is included)
+- npm (or bun -- a bun.lock is included)
 
 ## Setup
 
@@ -44,26 +44,23 @@ App runs at http://localhost:3000
 
 ## Scripts
 
-npm run dev      # start dev server
-npm run build    # production build
-npm start        # start production server
-npm run lint     # lint
+npm run dev      - start dev server
+npm run build    - production build
+npm start        - start production server
+npm run lint     - lint
 
 ## Project Structure
 
-.
-├── app/                 # Next.js App Router entry (layout, page, globals.css)
-├── components/          # UI sections (Hero, Gallery, RoomPricing, Meals, Amenities, etc.)
-│   └── motion/          # animation wrapper components
-├── lib/
-│   └── contact.ts       # single source of truth for branch info, phone numbers, WhatsApp links
-└── public/
-    ├── gallery/         # gallery images
-    └── videos/          # hero/video tour assets
+app/                    Next.js App Router entry (layout, page, globals.css)
+components/             UI sections (Hero, Gallery, RoomPricing, Meals, Amenities, etc.)
+components/motion/      animation wrapper components
+lib/contact.ts          single source of truth for branch info, phone numbers, WhatsApp links
+public/gallery/         gallery images
+public/videos/          hero/video tour assets
 
 ## Configuration
 
-No environment variables are required. All branch details, phone numbers, and default WhatsApp message text are defined in lib/contact.ts — update that file to change contact info across the whole site.
+No environment variables are required. All branch details, phone numbers, and default WhatsApp message text are defined in lib/contact.ts -- update that file to change contact info across the whole site.
 
 ## Deployment
 
@@ -71,4 +68,4 @@ Includes a netlify.toml, so the project is set up to deploy on Netlify out of th
 
 ## License
 
-No license specified — all rights reserved by the author unless stated otherwise.
+No license specified -- all rights reserved by the author unless stated otherwise.
