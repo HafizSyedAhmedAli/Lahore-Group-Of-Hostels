@@ -44,19 +44,19 @@ App runs at http://localhost:3000
 
 ## Scripts
 
-npm run dev      - start dev server
-npm run build    - production build
-npm start        - start production server
-npm run lint     - lint
+- npm run dev -- start dev server
+- npm run build -- production build
+- npm start -- start production server
+- npm run lint -- lint
 
 ## Project Structure
 
-app/                    Next.js App Router entry (layout, page, globals.css)
-components/             UI sections (Hero, Gallery, RoomPricing, Meals, Amenities, etc.)
-components/motion/      animation wrapper components
-lib/contact.ts          single source of truth for branch info, phone numbers, WhatsApp links
-public/gallery/         gallery images
-public/videos/          hero/video tour assets
+- app -- Next.js App Router entry (layout, page, globals.css)
+- components -- UI sections (Hero, Gallery, RoomPricing, Meals, Amenities, etc.)
+- components/motion -- animation wrapper components
+- lib/contact.ts -- single source of truth for branch info, phone numbers, WhatsApp links
+- public/gallery -- gallery images
+- public/videos -- hero/video tour assets
 
 ## Configuration
 
